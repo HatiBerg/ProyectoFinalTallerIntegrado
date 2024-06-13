@@ -1,7 +1,6 @@
 from django.db import models
 
 class Streamer(models.Model):
-    RANK = models.IntegerField()
     NAME = models.CharField(max_length=100)
     LANGUAGE = models.CharField(max_length=100)
     TYPE = models.CharField(max_length=100)
