@@ -1,0 +1,64 @@
+{% extends "../base/base_template.html" %}
+
+{% block title %}Streamers{% endblock %}
+
+{% block headContent %}
+
+{% endblock %}
+
+{% block header %}
+<div class="container-fluid fs-1">Taller Integrado 2024: Lista de Streamers</div>
+{% endblock %}
+
+{% block menu %}
+<li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/streamers/">Inicio</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/streamers/streamer/">Streamers</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="http://127.0.0.1:8000/streamers/about/">Acerca del sitio</a>
+</li>
+{% endblock %}
+
+{% block main %}
+<section class="intro">
+    <div class="bg-image h-100">
+        <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+            <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card shadow-2-strong">
+                <div class="card-body p-0">
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 800px">
+                    <table class="table table-dark mb-0">
+                        <thead style="background-color: #393939;">
+                        <tr class="text-uppercase text-success">
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Idioma</th>
+                            <th scope="col">Seguidores totales</th>
+                            <th scope="col">Vistas totales</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for streamer in streamers_data %}
+                        <tr>
+                            <td><a href="/streamers/streamer/{{ streamer.id }}/">{{ streamer.name }}</a></td>
+                            <td>{{ streamer.language }}</td>
+                            <td>{{ streamer.total_followers }}</td>
+                            <td>{{ streamer.total_views }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
