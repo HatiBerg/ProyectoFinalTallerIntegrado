@@ -1,4 +1,4 @@
-{% extends "base_template.html" %}
+{% extends "../base/base_template.html" %}
 
 {% block title %}Taller Integrado 2024: Tabla de Venta de videojuegos{% endblock %}
 
@@ -7,21 +7,38 @@
 {% endblock %}
 
 {% block header %}
-<div class="container-fluid fs-1">Taller Integrado 2024: Streamers</div>
+<div class="container-fluid fs-1">Taller Integrado 2024: Información del streamer</div>
 {% endblock %}
 
 {% block menu %}
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/">Inicio</a>
+    <a class="nav-link" href="http://127.0.0.1:8000/streamers/">Inicio</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:5000/platform/">Plataformas</a>
+    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/streamers/streamer/">Streamers</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:5000/genre/">Géneros</a>
+    <a class="nav-link" href="http://127.0.0.1:8000/streamers/about/">Acerca del sitio</a>
 </li>
 {% endblock %}
 
 {% block main %}
-
+<div>
+    <h1>Nombre: {{streamer.name}}</h1>
+    <h1>Idioma: {{streamer.language}}</h1>
+    <h1>Tipo: {{streamer.type}}</h1>
+    <h1>Categoría más transmitida: {{streamer.most_streamed_game}}</h1>
+    <h1>Duración promedio de la transmisión: {{streamer.average_stream_duration}}</h1>
+    <h1>Seguidores ganados por transmisión: {{streamer.followers_gained_per_stream}}</h1>
+    <h1>Espectadoras promedio por transmisión: {{streamer.avg_viewers_per_stream}}</h1>
+    <h1>Promedio de juegos por transmisión: {{streamer.avg_games_per_stream}}</h1>
+    <h1>Tiempo total transmitido: {{streamer.total_time_streamed}}</h1>
+    <h1>Seguidores totales: {{streamer.total_followers}}</h1>
+    <h1>Vistas totales: {{streamer.total_views}}</h1>
+    <h1>Total de juegos transmitidos: {{streamer.total_games_streamed}}</h1>
+    <h1>Días activos por semana: {{streamer.active_days_per_week}}</h1>
+    <h1>Día más activo: {{streamer.most_active_day}}</h1>
+    <h1>Día con más seguidores ganados: {{streamer.day_with_most_followers_gained}}</h1>
+    <h1><a href="https://www.twitch.tv/{{streamer.name}}/" target="_blank">Twitch</a></h1>
+</div>
 {% endblock %}
