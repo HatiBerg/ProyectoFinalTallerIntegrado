@@ -1,4 +1,4 @@
-{% extends "base_template.html" %}
+{% extends "../base/base_template.html" %}
 
 {% block title %}Taller Integrado 2024: Tabla de Venta de videojuegos{% endblock %}
 
@@ -12,13 +12,13 @@
 
 {% block menu %}
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/">Inicio</a>
+    <a class="nav-link" href="http://127.0.0.1:8000/streamers/">Inicio</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:5000/platform/">Plataformas</a>
+    <a class="nav-link" href="http://127.0.0.1:8000/streamers/streamer/">Streamers</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="http://127.0.0.1:5000/genre/">Géneros</a>
+    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/streamers/about/">Acerca del sitio</a>
 </li>
 {% endblock %}
 
