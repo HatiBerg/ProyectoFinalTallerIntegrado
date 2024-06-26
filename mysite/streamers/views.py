@@ -1,19 +1,21 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Streamer
 
 def index(request):
-    latest_question_list = Streamer.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
+    streamers_data= Streamer.objects.all()
+    context = {"streamers_data": streamers_data}
     return render(request, "streamers/index.html", context)
 
-def detail(request):
-    latest_question_list = Streamer.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    return render(request, "streamers/detail.html", context)
+def streamers_list(request):
+    streamers_data= Streamer.objects.all()
+    context = {"streamers_data": streamers_data}
+    return render(request, "streamers/streamers_list.html", context)
+
+def detail(request, streamer_id):
+    streamer = get_object_or_404(Streamer, pk=streamer_id)
+    return render(request, "streamers/detail.html", {"streamer": streamer})
 
 def about(request):
-    latest_question_list = Streamer.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    return render(request, "streamers/about.html", context)
+    return render(request, "streamers/about.html")
