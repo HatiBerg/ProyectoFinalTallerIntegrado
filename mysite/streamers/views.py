@@ -4,8 +4,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Streamer
 
 def index(request):
+    total_streamers = len(Streamer.objects.all())
     streamers_data= Streamer.objects.all()
-    context = {"streamers_data": streamers_data}
+    context = {"streamers_data": streamers_data, "total_streamers": total_streamers}
     return render(request, "streamers/index.html", context)
 
 def streamers_list(request):
